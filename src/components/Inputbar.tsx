@@ -1,6 +1,6 @@
 export default function Inputbar() {
   return (
-    <div className="border-2 border-white h-[15%] rounded-xl flex p-8 m-4 items-center">
+    <div className="border-2 border-white h-[8rem] rounded-xl flex p-8 m-4 items-center">
       <input
         className="flex-grow py-3 rounded-md px-3 "
         type="text"
