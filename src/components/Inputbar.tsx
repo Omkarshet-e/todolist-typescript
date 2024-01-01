@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-type Prop = {
+type InputProps = {
   setTodos: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-export default function Inputbar({ setTodos }: Prop) {
+export default function Inputbar({ setTodos }: InputProps) {
   const [input, setInput] = useState("");
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value);
