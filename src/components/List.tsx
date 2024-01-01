@@ -24,7 +24,11 @@ function List({ todos, setTodos }: ListProps) {
       <hr className="my-4 opacity-40" />
 
       {todos?.map((todo) => {
-        return <Todo key={todo}>{todo}</Todo>;
+        return (
+          <Todo todos={todos} setTodos={setTodos} key={todo}>
+            {todo}
+          </Todo>
+        );
       })}
     </div>
   );
