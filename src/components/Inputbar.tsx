@@ -14,6 +14,7 @@ export default function Inputbar({ setTodos }: InputProps) {
       | React.KeyboardEvent<HTMLInputElement>
       | React.MouseEvent<HTMLButtonElement>
   ) {
+    if (!input) return;
     if (e.type === "click") {
       setTodos((arr) => [...arr, input]);
       return;
