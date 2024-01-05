@@ -17,10 +17,13 @@ export default function Inputbar({ setTodos }: InputProps) {
     if (!input) return;
     if (e.type === "click") {
       setTodos((arr) => [...arr, input]);
+      setInput("");
+
       return;
     } else if (e.type === "keydown") {
       if ((e as React.KeyboardEvent).code === "Enter") {
         setTodos((arr) => [...arr, input]);
+        setInput("");
       }
     }
   }
