@@ -11,7 +11,7 @@ function List({ todos, setTodos }: ListProps) {
   }
 
   return (
-    <div className="border-2 border-white min-h-[calc(85%-40px)] max-h-fit rounded-xl p-8 m-4 ">
+    <div className="border-2 border-white min-h-[calc(85%-40px)]  rounded-xl p-8 m-4 max-sm:m-1 max-sm:p-5 max-sm:mt-3">
       <div className="label text-white flex justify-between items-center px-2">
         <h1 className="md:text-5xl text-3xl font-semibold">List</h1>
         <button

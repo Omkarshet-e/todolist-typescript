@@ -28,7 +28,7 @@ export default function Inputbar({ setTodos }: InputProps) {
     }
   }
   return (
-    <div className="border-2 border-white h-[8rem] rounded-xl flex p-8 m-4 items-center">
+    <div className="border-2 border-white h-[8rem] rounded-xl flex p-8 m-4 items-center max-sm:m-1 max-sm:p-5 max-sm:h-auto">
       <input
         className="flex-grow py-3 rounded-md px-3 "
         type="text"
