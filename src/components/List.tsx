@@ -1,8 +1,9 @@
+import { TodoObject } from "../types";
 import Todo from "./Todo";
 
 type ListProps = {
-  setTodos: React.Dispatch<React.SetStateAction<string[]>>;
-  todos: string[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoObject[]>>;
+  todos: TodoObject[];
 };
 
 function List({ todos, setTodos }: ListProps) {
@@ -25,8 +26,13 @@ function List({ todos, setTodos }: ListProps) {
 
       {todos?.map((todo) => {
         return (
-          <Todo todos={todos} setTodos={setTodos} key={todo}>
-            {todo}
+          <Todo
+            todos={todos}
+            todoStatus={todo.checked}
+            setTodos={setTodos}
+            key={todo.todo}
+          >
+            {todo.todo}
           </Todo>
         );
       })}

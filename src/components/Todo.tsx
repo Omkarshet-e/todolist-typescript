@@ -1,19 +1,27 @@
 import React, { useState } from "react";
+import { TodoObject } from "../types";
 
 type Prop = {
   children: React.ReactNode;
-  todos: string[];
-  setTodos: React.Dispatch<React.SetStateAction<string[]>>;
+  todos: TodoObject[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoObject[]>>;
+  todoStatus: boolean;
 };
 
-export default function Todo({ todos, setTodos, children }: Prop) {
-  const [checked, setChecked] = useState(false);
+export default function Todo({ todos, setTodos, children, todoStatus }: Prop) {
+  const [checked, setChecked] = useState(todoStatus);
 
   function handleClick(e: React.ChangeEvent<HTMLInputElement>) {
     setChecked((checked) => (e.target.checked = !checked));
+    setTodos(
+      todos.map((todo) => {
+        if (todo.todo === children) todo.checked = !checked;
+        return todo;
+      })
+    );
   }
   function handleRemoveTodo() {
-    setTodos(todos.filter((todo) => todo !== children));
+    setTodos(todos.filter((todo) => todo.todo !== children));
   }
   return (
     <div className="flex gap-4 leading-none text-xl md:text-3xl text-white my-5 px-2 justify-between items-center ">

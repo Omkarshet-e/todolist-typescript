@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { TodoObject } from "../types";
 
 type InputProps = {
-  setTodos: React.Dispatch<React.SetStateAction<string[]>>;
+  setTodos: React.Dispatch<React.SetStateAction<TodoObject[]>>;
 };
 
 export default function Inputbar({ setTodos }: InputProps) {
@@ -16,13 +17,13 @@ export default function Inputbar({ setTodos }: InputProps) {
   ) {
     if (!input) return;
     if (e.type === "click") {
-      setTodos((arr) => [...arr, input]);
+      setTodos((arr) => [...arr, { todo: input, checked: false }]);
       setInput("");
 
       return;
     } else if (e.type === "keydown") {
       if ((e as React.KeyboardEvent).code === "Enter") {
-        setTodos((arr) => [...arr, input]);
+        setTodos((arr) => [...arr, { todo: input, checked: false }]);
         setInput("");
       }
     }
